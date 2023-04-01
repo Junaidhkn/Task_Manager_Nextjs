@@ -1,20 +1,19 @@
 const Head = () => {
 	return (
 		<>
-			<title>My page title</title>
+			<title>Task Manager APP</title>
 			<meta
-				property='og:title'
-				content='My page title'
-				key='title'
+				name='viewport'
+				content='width=device-width, initial-scale=1.0'
 			/>
-
 			<meta
-				property='og:title'
-				content='My new title'
-				key='title'
+				http-equiv='X-UA-Compatible'
+				content='ie=edge'
 			/>
-
-			<p>Hello world!</p>
+			<link
+				rel='icon'
+				href='./favicon.ico'
+			/>
 		</>
 	);
 };
