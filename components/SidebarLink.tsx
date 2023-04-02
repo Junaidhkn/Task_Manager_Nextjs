@@ -15,6 +15,21 @@ const SidebarLink = ({ link }) => {
 	}
 
 	const Icon = icons[link.icon];
+
+	// // Above Code Explaination
+
+	// const icons = {
+	// 	Settings: 'settings-icon',
+	// 	User: 'user-icon',
+	// 	Grid: 'grid-icon',
+	// 	Calendar: 'calendar-icon',
+	// };
+	// const link = { icon: 'User' };
+
+	// const Icon = icons[link.icon];
+	// Output: "user-icon"
+	// console.log(Icon);
+
 	return (
 		<Link
 			href={link.link}
