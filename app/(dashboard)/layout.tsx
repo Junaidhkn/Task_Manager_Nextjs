@@ -5,7 +5,9 @@ import clsx from 'clsx';
 import GlassPane from '@/components/GlassPane';
 
 const inter = Inter({
+	subsets: ['latin'],
 	variable: '--font-inter',
+	display: 'swap',
 });
 
 export default function DashboardRootLayout({ children }) {
