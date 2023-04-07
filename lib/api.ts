@@ -23,7 +23,6 @@ export const register = async (user) => {
 		url: '/api/register',
 		method: 'POST',
 		body: user,
-		json: false,
 	});
 };
 
@@ -32,6 +31,5 @@ export const signin = async (user) => {
 		url: '/api/signin',
 		method: 'POST',
 		body: user,
-		json: false,
 	});
 };
