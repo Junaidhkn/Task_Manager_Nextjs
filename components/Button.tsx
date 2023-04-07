@@ -37,6 +37,10 @@ const buttonClasses = cva(
 				medium: ['text-lg', 'px-6', 'py-2'],
 				large: ['text-xlg', 'px-8', 'py-4'],
 			},
+			type: {
+				submit: 'submit',
+				button: 'button',
+			},
 		},
 		defaultVariants: {
 			intent: 'primary',
