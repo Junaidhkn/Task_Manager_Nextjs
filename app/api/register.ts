@@ -27,9 +27,9 @@ export default async function register(
 			}),
 		);
 		res.status(201);
-		res.json({ user });
+		res.json(user);
 	} else {
 		res.status(402);
-		res.json({});
+		res.json({ message: 'Something Went Wrong!' });
 	}
 }
