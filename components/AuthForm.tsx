@@ -1,16 +1,17 @@
 'use client';
+
 import { register, signin } from '@/lib/api';
-import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import Card from './Card';
+import { useCallback, useState } from 'react';
 import Button from './Button';
+import Card from './Card';
 import Input from './Input';
 
 const registerContent = {
 	linkUrl: '/signin',
 	linkText: 'Already have an account?',
-	header: 'Create a new Account',
+	header: 'Create a new account',
 	subheader: 'Just a few things to get started',
 	buttonText: 'Register',
 };
@@ -18,48 +19,39 @@ const registerContent = {
 const signinContent = {
 	linkUrl: '/register',
 	linkText: "Don't have an account?",
-	header: 'Welcome Back',
+	header: 'Welcome back!',
 	subheader: 'Enter your credentials to access your account',
 	buttonText: 'Sign In',
 };
 
 const initial = { email: '', password: '', firstName: '', lastName: '' };
 
-export default function AuthForm({ mode }: { mode: 'register' | 'signin' }) {
+const AuthForm = ({ mode }) => {
 	const [formState, setFormState] = useState({ ...initial });
-	const [error, setError] = useState('');
-
 	const router = useRouter();
-	const handleSubmit = useCallback(
-		async (e) => {
-			e.preventDefault();
 
-			try {
-				if (mode === 'register') {
-					await register(formState);
-				} else {
-					await signin(formState);
-				}
+	const handleSubmit = async (e) => {
+		e.preventDefault();
 
-				router.replace('/home');
-			} catch (e) {
-				setError(`Could not ${mode}`);
-			} finally {
-				setFormState({ ...initial });
+		try {
+			if (mode === 'register') {
+				await register(formState);
+				console.log('yolo');
+			} else {
+				await signin(formState);
 			}
-		},
-		[
-			formState.email,
-			formState.password,
-			formState.firstName,
-			formState.lastName,
-		],
-	);
+
+			router.push('/home');
+			setFormState(initial);
+		} catch (e) {
+			console.error(e);
+		}
+	};
 
 	const content = mode === 'register' ? registerContent : signinContent;
 
 	return (
-		<Card className=''>
+		<Card className={''}>
 			<div className='w-full'>
 				<div className='text-center'>
 					<h2 className='text-3xl mb-2'>{content.header}</h2>
@@ -146,4 +138,6 @@ export default function AuthForm({ mode }: { mode: 'register' | 'signin' }) {
 			</div>
 		</Card>
 	);
-}
+};
+
+export default AuthForm;

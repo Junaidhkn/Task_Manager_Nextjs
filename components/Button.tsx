@@ -20,7 +20,6 @@ const buttonClasses = cva(
 					'border-transparent',
 					'hover:bg-violet-600',
 				],
-
 				secondary: [
 					'bg-white',
 					'text-black',
@@ -37,10 +36,6 @@ const buttonClasses = cva(
 				medium: ['text-lg', 'px-6', 'py-2'],
 				large: ['text-xlg', 'px-8', 'py-4'],
 			},
-			type: {
-				submit: 'submit',
-				button: 'button',
-			},
 		},
 		defaultVariants: {
 			intent: 'primary',
@@ -55,9 +50,9 @@ export interface ButtonProps
 
 const Button: FC<ButtonProps> = ({
 	children,
-	className,
 	intent,
 	size,
+	className,
 	...props
 }) => {
 	return (
